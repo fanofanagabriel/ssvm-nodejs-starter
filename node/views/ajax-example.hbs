@@ -1,0 +1,23 @@
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+<input id="demo" type="button" onclick="myFunction()"/>
+<img id="returned_image" src='' />
+<script>
+function myFunction() {
+      var asdf = {
+          file: "64ebbb66bc34434bd9a1aeb08c4c0e24"
+      }
+      $.ajax({
+        url: 'flip',
+        dataType: 'text',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify(asdf),
+        success: function( data, textStatus, jQxhr ){
+            $('#returned_image').attr('src','64ebbb66bc34434bd9a1aeb08c4c0e24');
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+}
+</script>

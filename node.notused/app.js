@@ -1,4 +1,4 @@
-const { say } = require('../pkg/ssvm_nodejs_starter_lib.js');
+const { horizontally_flip } = require('../../pkg/ssvm_nodejs_starter_lib.js');
 
 const http = require('http');
 const url = require('url');
@@ -10,9 +10,29 @@ const server = http.createServer((req, res) => {
   if (!queryObject['name']) {
     res.end(`Please use command curl http://${hostname}:${port}/?name=MyName \n`);
   } else {
-    res.end(say(queryObject['name']) + '\n');
+    //res.end(say(queryObject['name']) + '\n');
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

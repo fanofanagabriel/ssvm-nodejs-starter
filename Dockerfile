@@ -12,3 +12,18 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x |  bash \
     && npm install -y ssvm \
     && npm install express express-fileupload
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+###########################################################################################
+
+RUN mkdir -p /root/workspace
+WORKDIR /root/workspace
+RUN rm -f ssvm-nodejs-starter
+RUN git clone https://github.com/kosinix/raster.git
+RUN git clone https://github.com/fanofanagabriel/ssvm-nodejs-starter.git
+WORKDIR /root/workspace/ssvm-nodejs-starter
+RUN ssvmup build
+WORKDIR /root/workspace/ssvm-nodejs-starter/
+RUN npm install
+WORKDIR /root/workspace/ssvm-nodejs-starter/node/
+CMD node index.js
+
